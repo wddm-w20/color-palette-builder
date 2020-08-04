@@ -26,9 +26,9 @@ const Swatch = () => {
   return (
     <SwatchLi>
       <RgbStart>rgb(</RgbStart>
-      <Channel />
-      <Channel />
-      <Channel />
+      <Channel value={255} />
+      <Channel value={0} />
+      <Channel value={0} />
       <RgbEnd>);</RgbEnd>
     </SwatchLi>
   )

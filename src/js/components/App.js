@@ -1,13 +1,20 @@
 import React from "react"
-import 'css/App.css'
-
+import styled from 'styled-components'
 import Palette from 'components/Palette'
+
+const AppDiv = styled.div`
+	display: grid;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+`
+
 
 const App = () => {
 	return (
-		<div className="app">
+		<AppDiv className="app">
 			<Palette />
-		</div>
+		</AppDiv>
 	)
 	
 }

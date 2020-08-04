@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import styled, { css } from 'styled-components'
 
 const ChannelDiv = styled.div`
@@ -21,12 +21,31 @@ const UpDownButton = styled.button`
   line-height: 1;
 `
 
-const Channel = () => {
+const Channel = ({value}) => {
+  console.log("Channel")
+
+  // state variable: combines a global variable, with a setter function
+  let [channelValue, setChannelValue] = useState(value)
+  // When a state variable changes, the component rerenders
+
+
+  const updateChannel = (v) => {
+    v = parseInt(v)
+
+    if (v < 0) {
+      v = 0
+    } else if (v > 255) {
+      v = 255
+    }
+
+    setChannelValue(v)
+  }
+
   return (
     <ChannelDiv className="channel r">
-      <UpDownButton type="button">+</UpDownButton>
-      <ValueInput type="text" />
-      <UpDownButton type="button">-</UpDownButton>
+      <UpDownButton type="button" onClick={(event) => updateChannel(channelValue + 1)}>+</UpDownButton>
+      <ValueInput type="text" value={channelValue} onChange={(event) => updateChannel(parseInt(event.currentTarget.value))} />
+      <UpDownButton type="button" onClick={(event) => updateChannel(channelValue - 1)}>-</UpDownButton>
     </ChannelDiv>
   )
 }
