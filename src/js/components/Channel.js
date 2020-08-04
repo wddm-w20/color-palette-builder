@@ -23,11 +23,11 @@ const UpDownButton = styled.button`
 
 const Channel = () => {
   return (
-    <div className="channel r">
+    <ChannelDiv className="channel r">
       <UpDownButton type="button">+</UpDownButton>
       <ValueInput type="text" />
       <UpDownButton type="button">-</UpDownButton>
-    </div>
+    </ChannelDiv>
   )
 }
 
