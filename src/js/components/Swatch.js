@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useState} from "react"
 import styled from 'styled-components'
 import Channel from 'components/Channel'
 
@@ -23,12 +23,21 @@ const RgbEnd = styled.div`
 `
 
 const Swatch = () => {
+
+  const [r, setR] = useState(255)
+  const [g, setG] = useState(0)
+  const [b, setB] = useState(255)
+
+  const styleBg = {
+    backgroundColor: `rgb(${r},${g},${b})`
+  }
+
   return (
-    <SwatchLi>
+    <SwatchLi style={styleBg}>
       <RgbStart>rgb(</RgbStart>
-      <Channel value={255} />
-      <Channel value={0} />
-      <Channel value={0} />
+      <Channel value={r} onChannelUpdate={setR} />
+      <Channel value={g} onChannelUpdate={setG} />
+      <Channel value={b} onChannelUpdate={setB} />
       <RgbEnd>);</RgbEnd>
     </SwatchLi>
   )
