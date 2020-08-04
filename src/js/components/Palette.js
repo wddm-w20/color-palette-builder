@@ -6,10 +6,13 @@ const PaletteUl = styled.ul`
   display: grid;
 `
 
-const Palette = () => {
+const Palette = ({swatches}) => {
+
+  const swatchComponents = swatches.map((s, i) => <Swatch key={i} color={s} />)
+
   return (
     <PaletteUl>
-      <Swatch />
+      {swatchComponents}
     </PaletteUl>
   )
 }

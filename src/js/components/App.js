@@ -9,11 +9,18 @@ const AppDiv = styled.div`
 	height: 100%;
 `
 
-
 const App = () => {
+
+	// Pretend this came from the database
+	const swatches = [
+		[255, 255, 0], 
+		[0, 255, 0], 
+		[0, 255, 255]
+	]
+
 	return (
 		<AppDiv className="app">
-			<Palette />
+			<Palette swatches={swatches} />
 		</AppDiv>
 	)
 	

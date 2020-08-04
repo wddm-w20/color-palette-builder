@@ -22,11 +22,11 @@ const RgbEnd = styled.div`
   align-self: center;
 `
 
-const Swatch = () => {
+const Swatch = ({color}) => {
 
-  const [r, setR] = useState(255)
-  const [g, setG] = useState(0)
-  const [b, setB] = useState(255)
+  const [r, setR] = useState(color[0])
+  const [g, setG] = useState(color[1])
+  const [b, setB] = useState(color[2])
 
   const styleBg = {
     backgroundColor: `rgb(${r},${g},${b})`
