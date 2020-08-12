@@ -24,6 +24,7 @@ const RgbEnd = styled.div`
 
 const Swatch = ({color}) => {
 
+  // State variables
   const [r, setR] = useState(color[0])
   const [g, setG] = useState(color[1])
   const [b, setB] = useState(color[2])

@@ -1,5 +1,6 @@
-import React from "react"
+import React, {useContext} from "react"
 import styled, { css } from 'styled-components'
+import {ColorContext} from 'components/App'
 
 const ChannelDiv = styled.div`
   text-align: center;
@@ -29,6 +30,8 @@ const Channel = ({value, onChannelUpdate}) => {
   // When a state variable changes, the component rerenders
   const channelValue = value
 
+  // Subscribe to the Context from the App. useContext returns the "value" prop, from the Provider
+  const {updater} = useContext(ColorContext)
 
   const updateChannel = (v) => {
     v = parseInt(v)
@@ -41,8 +44,11 @@ const Channel = ({value, onChannelUpdate}) => {
       v = 0
     }
 
-    // setChannelValue(v)
+    // Update the UI by changing a state variable in Swatch
     onChannelUpdate(v)
+
+    // Update the data up in the controller (App)
+    updater(v)
   }
 
   return (

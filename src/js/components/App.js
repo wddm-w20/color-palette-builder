@@ -1,4 +1,4 @@
-import React from "react"
+import React, {createContext} from "react"
 import styled from 'styled-components'
 import Palette from 'components/Palette'
 
@@ -12,11 +12,21 @@ const AppDiv = styled.div`
 	height: 100%;
 `
 
+// Call a hook
+export const ColorContext = createContext({})
+
+const updateTheData = (data) => {
+	console.log("Updating your data...", data)
+}
+
+
 const App = () => {
 	return (
-		<AppDiv className="app">
-			<Palette swatches={swatches} />
-		</AppDiv>
+		<ColorContext.Provider value={ {updater: updateTheData, data: swatches} }>
+			<AppDiv>
+				<Palette swatches={swatches} />
+			</AppDiv>
+		</ColorContext.Provider>
 	)
 }
 
